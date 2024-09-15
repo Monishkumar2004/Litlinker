@@ -1,0 +1,27 @@
+{% extends 'apps/base.html' %}
+
+{% block body %}
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ book_details.book_image.url }}" alt="" width="230" height="320">
+            </div>
+            <div class="col-md-6">
+                <!-- <p>{{book_details.id}}</p> -->
+                <h2>{{book_details.name}}</h2>
+                <h4>{{book_details.desc}}</h4>
+                <h6>{{book_details.price}}</h6>
+                <a class="btn btn-warning" href="{% url 'apps:edit' book_details.id %} ">UPDATE</a>
+                <a class="btn btn-danger" href="{% url 'apps:delete' book_details.id %} ">DELETE</a>
+                <a class="btn btn-primary" href="{% url 'apps:download' book_details.id %} ">DOWNLOAD</a>
+            </div>
+
+        </div>
+
+    </div>
+
+  
+  
+{% endblock %}

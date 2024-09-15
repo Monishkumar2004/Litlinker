@@ -1,0 +1,162 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>LitLinker</title>
+	<link rel="icon" href="./images/image.png" type="image/icon type">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href={% static "apps/assets/css/main.css"%} />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body class="is-preload homepage">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<div id="header-wrapper">
+			<header id="header" class="container">
+
+				<!-- Logo -->
+				<div id="logo">
+					<h1><a href="index.html">LitLinker</a></h1>
+				</div>
+
+				<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li class="current"><a href="index.html">Home</a></li>
+						<li><a href="#	">Pricing</a></li>
+						<li><a href="#">Authors</a></li>
+					</ul>
+				</nav>
+
+			</header>
+		</div>
+
+		<!-- Banner -->
+		<div id="banner-wrapper">
+			<div id="banner" class="box container">
+				<div class="row">
+					<div class="col-7 col-12-medium">
+						<h2>LitLinker</h2>
+						<p> Linking readers to books and
+							publishers to readers</p>
+					</div>
+					<div class="col-5 col-12-medium">
+						<ul>
+							<li><a href="#features-wrapper" class="button large icon solid fa-arrow-circle-right">Ok
+									let's go</a></li>
+							<li><a href="#main-wrapper" class="button alt large icon solid fa-question-circle">About
+									us</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Features -->
+		<div id="features-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-4 col-12-medium">
+
+						<!-- Box -->
+						<section class="box feature">
+                            {% for book in book_list %}
+							<a href="#" class="image featured"><img src="{{book.book_image.url}}" alt=""  widget='100' height='220' /></a>
+							<div class="inner">
+								<header>
+									<h2>{{book.name}}</h2>
+									<p>{{book.desc}}</p>
+								</header>
+								<a class="btn btn-primary" href="{% url 'apps:details' book.id %}">View Details</a>
+
+							</div>
+                            {% endfor %}
+						</section>
+
+					</div>
+					<div class="col-4 col-12-medium">
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Main -->
+		<div id="main-wrapper">
+			<div class="container">
+				<div class="row gtr-200">
+					<div class="col-5 col-12-medium">
+
+						<!-- Sidebar -->
+						<div id="sidebar">
+							<section class="widget thumbnails">
+								<img style="height: 460px;" src="./images/photo.jpg" alt="">
+							</section>
+						</div>
+
+					</div>
+					<div class="col-7 col-12-medium imp-medium">
+
+						<!-- Content -->
+						<div id="content">
+							<section class="last">
+								<h2>About us</h2>
+								<p style="line-height: 30px;" class="aboutus">
+									At <strong>LitLinker</strong>, we believe that books are more than just pages—they
+									are
+									experiences. Our mission is to bring you a personalized selection of books that
+									speak to
+									your mood, preferences, and style.
+									<br>
+									<strong>How LitLinker Works</strong> <br>
+									Behind-the-Scenes Discovery
+									Using advanced technologies, LitLinker explores a variety of open online sources,
+									gathering a vast collection of books. From bestsellers to hidden gems, we find
+									titles
+									that suit your taste.
+									<br>
+									<strong>Effortless Collection</strong>
+									When you search for a book, our platform seamlessly collects and presents books
+									tailored
+									to your preferences, ensuring you get the best recommendations without hassle.
+									<br>
+									<strong>Personalized Recommendations</strong>
+									Our intelligent system provides book recommendations based on your reading
+									preferences
+									and browsing behavior, ensuring a highly personalized experience.
+								</p>
+
+							</section>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		 <!-- Footer -->
+		<div id="footer-wrapper">
+			<footer style="display: flex; justify-content: center; align-items: center;">
+				<p> &copy; 2024 LitLinker. All Rights Reserved.</p>
+			</footer>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
